@@ -1,0 +1,40 @@
+{
+  "name": "@818/shared",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "postinstall": "bash scripts/link-types.sh 2>/dev/null || true"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-ui": "^1.4.3",
+    "tailwind-merge": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@tanstack/react-table": "^8.20.0",
+    "axios": "^1.7.0",
+    "lucide-react": ">=0.300.0",
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0",
+    "zustand": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tanstack/react-table": "^8.21.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "lucide-react": "^0.577.0",
+    "typescript": "^5.9.3"
+  }
+}
