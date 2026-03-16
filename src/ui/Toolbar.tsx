@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Toolbar as ToolbarPrimitive } from 'radix-ui'
+import * as ToolbarPrimitive from '@radix-ui/react-toolbar'
 import { cn } from '../utils/cn'
 
 function Toolbar({
