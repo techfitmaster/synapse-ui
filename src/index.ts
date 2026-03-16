@@ -24,8 +24,9 @@ export { Card, CardHeader, CardTitle, CardContent } from './ui/Card'
 export { Input, type InputProps } from './ui/Input'
 export { Textarea, type TextareaProps } from './ui/Textarea'
 export {
+  dialogCloseIcon,
   Dialog, DialogClose, DialogContent, DialogDescription,
-  DialogFooter, DialogHeader, DialogOverlay, DialogTitle, DialogTrigger,
+  DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
   SimpleDialog,
 } from './ui/Dialog'
 export {
