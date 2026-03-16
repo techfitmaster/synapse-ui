@@ -178,7 +178,9 @@ function SelectField({
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
-        {options.map((option) => (
+        {options.filter((option, index, arr) =>
+          option.value !== '' && arr.findIndex((o) => o.value === option.value) === index
+        ).map((option) => (
           <SelectItem key={option.value} value={option.value}>
             {option.label}
           </SelectItem>

@@ -10,9 +10,9 @@ const variants = {
 } as const
 
 const sizes = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
-  lg: 'h-12 px-6 text-base',
+  sm: 'h-8 min-w-16 px-3 text-sm',
+  md: 'h-10 min-w-20 px-5 text-sm',
+  lg: 'h-12 min-w-24 px-6 text-base',
   icon: 'h-10 w-10',
 } as const
 
