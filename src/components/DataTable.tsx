@@ -34,6 +34,8 @@ interface DataTableProps<T> {
   pageSize?: number
   total?: number
   onPageChange?: (page: number) => void
+  onPageSizeChange?: (size: number) => void
+  pageSizeOptions?: number[]
   /** Enable column sorting (default: false) */
   enableSorting?: boolean
   /** Loading text */
@@ -92,6 +94,8 @@ export function DataTable<T>({
   pageSize = 10,
   total = 0,
   onPageChange,
+  onPageSizeChange,
+  pageSizeOptions,
   enableSorting = false,
   loadingText = '加载中...',
   emptyText = '暂无数据',
@@ -165,6 +169,8 @@ export function DataTable<T>({
           pageSize={pageSize}
           total={total}
           onPageChange={onPageChange}
+          onPageSizeChange={onPageSizeChange}
+          pageSizeOptions={pageSizeOptions}
           labels={paginationLabels}
         />
       )}
