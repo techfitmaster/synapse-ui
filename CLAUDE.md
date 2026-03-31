@@ -1,0 +1,51 @@
+# CLAUDE.md
+
+## 项目概述
+synapse-ui — 跨产品前端共享组件库，为所有前端项目提供统一的 UI 组件、基础设施和国际化方案。
+
+## 技术栈
+- React 18/19 + TypeScript 5
+- Radix UI 原语组件
+- shadcn/ui v4（new-york 变体）
+- Tailwind CSS（clsx + tailwind-merge）
+- class-variance-authority（组件变体）
+
+## 架构
+纯 npm library（无独立运行入口），按功能分目录：
+
+```
+src/
+├── ui/           → 20 个 Radix UI 原语封装（Button/Badge/Card/Dialog/Select...）
+├── components/   → 复合组件（DataTable/Pagination/ErrorBoundary）
+├── hooks/        → 自定义 Hooks（usePagination）
+├── api/          → Axios API 工厂（createClient）
+├── store/        → Zustand 认证 store 工厂（createAuthStore）
+├── i18n/         → 国际化（I18nProvider/useT）
+├── utils/        → 工具函数（cn/formatters）
+├── types/        → 共享类型（ApiResponse/PaginatedData）
+└── index.ts      → 统一导出
+```
+
+## 常用命令
+```bash
+make typecheck    # TypeScript 类型检查
+make lint         # ESLint 检查
+make clean        # 清理产物
+```
+
+## 发布
+推送 tag 触发 GitHub Actions 自动发布到 GitHub Packages npm：
+```bash
+npm version patch   # 或 minor / major
+git push origin main --tags
+```
+
+## 消费方
+- 818-cargo admin/portal（`npm install @techfitmaster/synapse-ui`）
+- 未来所有前端产品
+
+## 规范
+- 所有 UI 组件基于 Radix UI 原语 + shadcn/ui 模式
+- 导出必须通过 src/index.ts 统一管理
+- 版本通过 npm version + git tag 管理（语义版本）
+- 合并 main 需 Albert 审批

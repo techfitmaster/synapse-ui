@@ -21,6 +21,9 @@ jobs:
 
       - run: npm ci
 
+      - name: TypeScript Check
+        run: npx tsc --noEmit
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
