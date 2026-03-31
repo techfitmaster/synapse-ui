@@ -1,6 +1,24 @@
-# @818/shared
+# @techfitmaster/synapse-ui
 
-818 游戏平台前端共享组件库。为 admin、portal 等前端项目提供统一的 UI 组件和基础设施。
+跨产品前端共享组件库。为 admin、portal 等前端项目提供统一的 UI 组件和基础设施。
+
+## 安装
+
+```bash
+# 配置 GitHub Packages npm registry
+echo "@techfitmaster:registry=https://npm.pkg.github.com" >> .npmrc
+
+# 安装
+npm install @techfitmaster/synapse-ui
+```
+
+## 使用
+
+```tsx
+import { Button, Badge, Card, cn } from '@techfitmaster/synapse-ui'
+import { I18nProvider, useT } from '@techfitmaster/synapse-ui'
+import { createClient } from '@techfitmaster/synapse-ui'
+```
 
 ## 技术栈
 
@@ -54,48 +72,6 @@
 | `ErrorBoundary` | React 错误边界 |
 | `Pagination` | 分页组件 |
 
-## 安装与使用
-
-### 作为 git submodule
-
-```bash
-# 在 monorepo 中已配置为 submodule
-git submodule update --init packages/shared
-
-# 安装依赖
-cd packages/shared && npm install
-```
-
-### 在项目中引用
-
-```json
-// package.json
-{
-  "dependencies": {
-    "@818/shared": "file:../packages/shared"
-  }
-}
-```
-
-### Tailwind CSS 配置
-
-在消费项目的 `tailwind.config.ts` 中包含 shared 源码路径：
-
-```ts
-content: [
-  './src/**/*.{ts,tsx}',
-  '../packages/shared/src/**/*.{ts,tsx}',
-]
-```
-
-### 导入使用
-
-```tsx
-import { Button, Badge, Card, cn } from '@818/shared'
-import { I18nProvider, useT } from '@818/shared'
-import { createClient } from '@818/shared'
-```
-
 ## Peer Dependencies
 
 | 包 | 版本 | 必需 |
@@ -107,10 +83,11 @@ import { createClient } from '@818/shared'
 | lucide-react | >=0.300 | 可选 |
 | @tanstack/react-table | ^8.20 | 可选 |
 
-## 类型兼容
+## 发布
 
-如遇 React 类型冲突，运行类型链接脚本：
+推送 tag 触发 GitHub Actions 自动发布到 GitHub Packages：
 
 ```bash
-bash scripts/link-types.sh
+npm version patch  # 或 minor / major
+git push origin main --tags
 ```
